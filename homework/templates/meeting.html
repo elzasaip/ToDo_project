@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meeting list</title>
     <link rel="stylesheet" href="{% static 'styles_hw/meeting.css' %}">
+    <link rel="stylesheet" href="{% static 'styles_hw/checkbox.css' %}">
 </head>
 <body>
     <section>
@@ -16,18 +17,26 @@
             <button class="create_button">ДОБАВИТЬ</button>
         </div>
         <div class="tomeet_container">
-            <div class="meeting_element">
-                <div class="meeting_elemen_header">
+            <div class="tomeet_item">
+                <div class="tomeet_item_header">
                     <label class="checkbox_container">
                         <input type="checkbox">
                         <span class="checkmark"></span>     
                     </label>
-                    <h4>{{ tomeet.person }}</h4>
-
+                    <h4>Dastan</h4>                   
                 </div>
-
+                <div class="contact_phone">
+                    <h5>+971534789878</h5>
+                </div>               
+                <div class="tomeet_item_footer">
+                    <p>20.09.2022</p>
+                    <p>обсудить о делах</p>
+                    <div class="action_buttons">
+                        <img src="./img/unmarked.png">
+                        <img src="./img/trash-alt.svg">
+                    </div>
+                </div>
             </div>
-
         </div>
     </section>
     

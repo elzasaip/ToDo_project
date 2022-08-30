@@ -7,7 +7,7 @@ def page(request):
 
 def meeting(request):
     tomeet_list = ToMeet.objects.all()
-    return render (request, 'meeting.html', 'tomeet_list':tomeet_list)
+    return render (request, 'meeting.html', {'tomeet_list':tomeet_list})
 
 def text(request):
     return HttpResponse ('Добро пожаловать в приложение ToDo - Admin) ')
