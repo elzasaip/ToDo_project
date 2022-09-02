@@ -1,7 +1,7 @@
 from django.db import models
 
 class ToMeet (models.Model):
-    persone = models.CharField (max_length=50)
+    person = models.CharField (max_length=50)
     phone_number = models.CharField (max_length=16)
     date_of_meeting = models.DateField  ()
     comment = models.TextField()

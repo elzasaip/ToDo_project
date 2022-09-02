@@ -5,40 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting list</title>
+    <title>Meeting List</title>
     <link rel="stylesheet" href="{% static 'styles_hw/meeting.css' %}">
     <link rel="stylesheet" href="{% static 'styles_hw/checkbox.css' %}">
 </head>
 <body>
-    <section>
-        <div class="create_container">
-            <input 
-            class="create_input" type="text" placeholder="Напишите сюда новую встречу">
-            <button class="create_button">ДОБАВИТЬ</button>
-        </div>
-        <div class="tomeet_container">
-            <div class="tomeet_item">
-                <div class="tomeet_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>     
-                    </label>
-                    <h4>Dastan</h4>                   
-                </div>
-                <div class="contact_phone">
-                    <h5>+971534789878</h5>
-                </div>               
-                <div class="tomeet_item_footer">
-                    <p>20.09.2022</p>
-                    <p>обсудить о делах</p>
-                    <div class="action_buttons">
-                        <img src="./img/unmarked.png">
-                        <img src="./img/trash-alt.svg">
-                    </div>
+    <section class="picture">
+        <img id=image src="{% static 'img/meeting.webp' %}">
+    </section>
+        <h2 id="title">ОРГАНИЗОВАТЬ ВСТРЕЧУ</h2>
+        <form class="task-field">
+           <div>
+            <input id="task-field_inputName" type="text" placeholder="ФИО">
+           </div> 
+           <div>
+            <input id="task-field_inputPhone" type="text" placeholder="+971000000000">
+           </div>
+            <div>
+                <input id="task-field_inputcomment" type="text" placeholder="Напишите комментарий">    
+            </div>
+    
+            <button id="task-field_button">ДОБАВИТЬ</button>
+        </form>  
+    </section>
+    <section class="tomeet_task">
+        {% for tomeet in tomeet_list %}
+        <div class="task-item">
+            <div class="task-item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>     
+                </label>
+            <h4>{{ tomeet.person }}</h4>
+                <h5>{{ tomeet.phone_number }}</h5>
+                <p id="comment">{{tomeet.comment}}</p>
+            </div>
+            <div class="task-item_footer">
+                <p id="date">{{tomeet.date_of_meeting}}</p>
+                <div class="action_buttons">
+                    <img src="{% static 'img/unmarked.png' %}">
+                    <img src="{% static 'img/trash-alt.svg' %}">
                 </div>
             </div>
         </div>
+        {% endfor %}
     </section>
-    
 </body>
 </html>
