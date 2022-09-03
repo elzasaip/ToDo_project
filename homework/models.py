@@ -3,7 +3,7 @@ from django.db import models
 class ToMeet (models.Model):
     person = models.CharField (max_length=50)
     phone_number = models.CharField (max_length=16)
-    date_of_meeting = models.DateField  ()
+    date_of_meeting = models.DateField ()
     comment = models.TextField()
     is_closed = models.BooleanField(default = False)
     is_favorite = models.BooleanField(default = False)

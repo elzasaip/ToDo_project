@@ -59,42 +59,51 @@ input{
 
  button{
     display:block;
-    width: 70%;
+    width: 30%;
+    position: relative;
+    margin-left:20%;
     font-size: 18px;
     color:azure;
     padding:12px 15px;
     background-color: rgba(103, 71, 219, 0.963);
     border-radius: 5px;
-    box-shadow: 2px 0px 5px rgb(58, 58, 60);
+    box-shadow: 3px 0px 10px rgb(42, 42, 44);
     margin-bottom: 15px;
     cursor:pointer;
+    opacity: 0.75;
     transition: 0.2s ease-in-out;
  }
  button:hover{
-    opacity: 0.75;
+    opacity: 1;
  }
- 
+
  .tomeet_task{
+    margin:20px;
+ }
+ .task-item{
     display: flex;
-    width: 68.5%;
+    width: 70%;
     flex-direction: column;
+    justify-content: space-between;
     border-radius: 5px;
     box-shadow: 2px 0px 5px rgb(169, 167, 167);
     background-color: rgb(245, 251, 251);
-    padding:12px 15px;
-    margin:30px 20px;
+    margin-top: 30px;
+    margin-bottom:30px;
 }
-.task-item_header,.task-item_footer{
+.task-item_header,.task-item_footer{ 
     color: #343338;
     font-family: sans-serif;
     padding: 5px;
 }
 
-.task-item_header h4{
+#namePerson{
     margin-left: 21px;
     margin-top: 10px;
     font-size: 18px;
+    font-weight: 500;
 }
+
 .task-item_header h5{
     margin-top: 5px;
     font-size: 16px;
