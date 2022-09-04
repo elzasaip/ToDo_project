@@ -10,63 +10,65 @@
     <link rel="stylesheet" href="{% static 'styles_hw/checkbox.css' %}">
 </head>
 <body>
-    <section class="picture">
-        <img id=image src="{% static 'img/goals.jpeg' %}">
-    </section class="task-field">
-        <h2 id="title">Мои цели</h2>
-        <input id="task-field_inputgoal" type="text" placeholder="Напишите свю цель">
-    </section>
-    <section class="create_options">
-        <h4>{{difficulty}}</h4>
-    <div class="options">
-        <label>
-            <input type="radio"
-            name="category"
-            id="category1"
-            value="easy">
-            <span class="circle easy"></span>
-            <div>EASY</div>
-        </label>
+    <section>
+        <div class="picture">
+            <img id=image src="{% static 'img/goals.jpeg' %}">
+        </div >
+        <div class="input">
+            <h2 id="title">Мои цели на месяц</h2>
+            <input id="task-field_inputgoal" type="text" placeholder="Напишите свю цель"><br>
+            <input id="task-field_inputcomment" type="text" 
+                name="add_reason" placeholder="Напишите комментарий"> <br>
+        </div>
+            <h4>{{difficulty}}</h4>
+        <div class="options-container">
+            <h4>Уровень сложности:</h4>
+            <label class="radio_options">
+                <input type="radio"
+                name="category"
+                id="category1"
+                value="easy">
+                <span>Легкий</span>
+            </label>
 
-        <label>
-            <input type="radio"
-            name="category"
-            id="category2"
-            value="normal">
-            <span class="circle normal"></span>
-            <div>NORMAL</div>
-        </label>
-       
-        <label>
-            <input type="radio"
-            name="category"
-            id="category3"
-            value="difficult">
-            <span class="circle difficult"></span>
-            <div>DIFFICULT</div>
-        </label>
-    </div>
-    <button id="task-field_button">ДОБАВИТЬ</button>
-    </section>
-    <section class="goal_task">
-        {% for goals in goals_list %}
-        <div class="task-item">
-            <div class="task-item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>     
-                </label>
-            </div>
-            <div class="task-item_footer">
-                <p id="date">{{goals.month}}</p>
-                <p>{{ goals.reason_for_goal }}</p>
-                <div class="action_buttons">
-                    <img src="{% static 'img/unmarked.png' %}">
-                    <img src="{% static 'img/trash-alt.svg' %}">
+            <label class="radio_options">
+                <input type="radio"
+                name="category"
+                id="category2"
+                value="normal">
+                <span>Средний</span>
+            </label>
+        
+            <label class="radio_options">
+                <input type="radio"
+                name="category"
+                id="category3"
+                value="difficult">
+                <span>Сложный</span>
+            </label>
+        </div>
+        <div><button id="task-field_button">ДОБАВИТЬ</button></div>
+        <div class="goal_task">
+            {% for goals in goals_list %}
+            <div class="task-item">
+                <div class="task-item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>{{goals.goal}}</h4>     
+                    </label>
+                </div>
+                <div class="task-item_footer">
+                    <p id="date">{{goals.month}}</p>
+                    <p>{{ goals.reason_for_goal }}</p>
+                    <div class="action_buttons">
+                        <img src="{% static 'img/unmarked.png' %}">
+                        <img src="{% static 'img/trash-alt.svg' %}">
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </section>
 </body>
 </html>

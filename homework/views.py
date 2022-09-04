@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse,redirect
-from .models import ToMeet, Goal_for_month
+from .models import ToMeet, Goal_for_month, Habits
 
 
 def page(request):
@@ -18,16 +18,18 @@ def goal(request):
 
 def add_list(request):
     form = request.POST
-    person = form['add_name']
-    tomeet = ToMeet(person = person)
-    phone_number = form['add_phone']
-    tomeet = ToMeet(phone_number = phone_number)
+    namePerson = form['add_name']
+    numPhone = form['add_phone']
     comment = form['add_comment']
-    tomeet = ToMeet(comment=comment)
-    date_of_meeting = form ['add_date']
-    tomeet = ToMeet(date_of_meeting = date_of_meeting)
+    meetingDate = form ['add_date']
+    tomeet = ToMeet(person=namePerson, phone_number=numPhone, 
+                    comment=comment,date_of_meeting=meetingDate)
     tomeet.save()
     return redirect(meeting)
+
+def habits(request):
+    habits_list = Habits.objects.all()
+    return render (request,'habits.html',{'habits_list':habits_list})
 
 
     

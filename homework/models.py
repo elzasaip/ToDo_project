@@ -15,3 +15,10 @@ class Goal_for_month (models.Model):
     difficulty = models.BooleanField(default = False)
     reason_for_goal=models.TextField()
 
+class Habits(models.Model):
+    name = models.CharField(max_length=50)
+    done_for_today = models.BooleanField(default = False)
+    important= models.BooleanField(default = False)
+    comment = models.TextField()
+
+
