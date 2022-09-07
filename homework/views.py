@@ -31,5 +31,24 @@ def habits(request):
     habits_list = Habits.objects.all()
     return render (request,'habits.html',{'habits_list':habits_list})
 
+def delete_tomeet(request,id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.delete()
+    return redirect(meeting)
+
+def mark_tomeet(request,id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = True 
+    tomeet.save()
+    return redirect(meeting)
+
+def unmark_tomeet(request,id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = False
+    tomeet.save()
+    return redirect(meeting)
+
+
+
 
     

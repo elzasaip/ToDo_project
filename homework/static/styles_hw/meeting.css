@@ -29,7 +29,7 @@ section{
 form{
     margin: 20px;
 }
-input,button{
+input:not([type='button']),button{
     border: none;
     outline: none;
     appearance: none;
@@ -37,7 +37,7 @@ input,button{
     cursor: initial;
 }
  
-input{
+input:not([type='button']){
     display: block;
     width: 70%;
     font-size: 18px;
@@ -47,13 +47,13 @@ input{
     box-shadow: 2px 0px 5px rgb(169, 167, 167);
     margin-bottom: 15px;
  }
- input:focus{
+ input:not([type='button']):focus{
   background-color: white;
   border-color: #2f393e;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
  }
- input::placeholder{
+ input:not([type='button'])::placeholder{
     opacity: 0.5;
  }
 
@@ -128,15 +128,66 @@ h5::before{
 #date{
     font-size: 16px;
 }
+.task-item.done{
+    background-color: #E0E0E0;
+    text-decoration: line-through;
+    color:#757575;
+}
+.task-item.done h4, .task-item.done h5, .task-item.done p{
+    color:#757575;
+}
+.task-item.marked{
+    background-color: #f7e756;
+    border: 2px solid  #eff756;
+}
+.task-item.marked .btn_mark{
+    background-color: goldenrod;
+    border:0.5px solid  goldenrod;
+}
 
 .task-item_footer.action_buttons{
     display:flex;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    
 }
 
-.task-item_footer img{
-    width: 25px;
-    height: 25px;
-    margin: 0 5px;
+.btn_mark{
+    width: 110px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(84, 204, 92);
+    border:0.5px solid  rgb(84, 204, 92);
+    border-radius: 5px;
+    box-shadow: 3px 0px 10px rgb(42, 42, 44);
+    opacity: 0.75;
+    transition: 0.2s ease-in-out;
     cursor: pointer;
 }
+#btn_delete{
+    width: 110px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border:0.5px solid  red;
+    border-radius: 5px;
+    background-color: red;
+    box-shadow: 3px 0px 10px rgb(42, 42, 44);
+    opacity: 0.75;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.btn_mark:hover{
+    opacity: 1;
+}
+
+#btn_delete:hover{
+    opacity: 1;
+}
+
 

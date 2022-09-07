@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting List</title>
+    <link rel="stylesheet" href="{% static 'styles_hw/meeting.css' %}">
+    <link rel="stylesheet" href="{% static 'styles_hw/checkbox.css' %}">
+</head>
+<body>
+    <section class="picture">
+        <img id=image src="{% static 'img/meeting.webp' %}">
+    </section>
+    <form>
+        <h2 id="title">ОРГАНИЗОВАТЬ ВСТРЕЧУ</h2>
+            <input id="task-field_inputName" type="text" 
+            name="add_name" placeholder="ФИО"><br>
+            
+            <input id="task-field_inputPhone" type="text" 
+            name="add_phone" placeholder="+971000000000"><br>
+
+            <input id="task-field_inputDate" type="date" 
+            name="add_date" placeholder="Напишите день встречи"><br>
+
+            <input id="task-field_inputcomment" type="text" 
+                name="add_comment" placeholder="Напишите комментарий"> <br>   
+    
+            <button id="task-field_button">ДОБАВИТЬ</button><br>
+        </form>  
+    </section>
+    <section class="tomeet_task">
+        <div class="task-item">
+            <div class="task-item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span> 
+                    <h4></h4>    
+                </label>
+                <h5>Name</h5>
+                <p id="comment">Comment</p>
+            </div>
+            <div class="task-item_footer">
+                <p id="date">07.09.2022</p>
+                <div class="action_buttons">
+                    <img src="{% static 'img/unmarked.png'%}">
+                    <img src="{% static 'img/trash-alt.svg'%}">
+                </div>
+            </div>
+        </div>
+        <div class="task-item marked">
+            <div class="task-item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span> 
+                    <h4></h4>    
+                </label>
+                <h5>Name</h5>
+                <p id="comment">Comment</p>
+            </div>
+            <div class="task-item_footer">
+                <p id="date">07.09.2022</p>
+                <div class="action_buttons">
+                    <img src="{% static 'img/yellow.png'%}">
+                    <img src="{% static 'img/trash-alt.svg'%}">
+                </div>
+            </div>
+        </div>
+        <div class="task-item done">
+            <div class="task-item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span> 
+                    <h4></h4>    
+                </label>
+                <h5>Name</h5>
+                <p id="comment">Comment</p>
+            </div>
+            <div class="task-item_footer">
+                <p id="date">07.09.2022</p>
+                <div class="action_buttons">
+                    <img src="{% static 'img/unmarked.png'%}">
+                    <img src="{% static 'img/trash-alt.svg'%}">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

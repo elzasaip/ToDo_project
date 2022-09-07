@@ -33,7 +33,10 @@
     </section>
     <section class="tomeet_task">
         {% for tomeet in tomeet_list %}
-        <div class="task-item">
+        <div class="task-item
+        {% if tomeet.is_favorite %}
+                marked
+            {% endif %}">
             <div class="task-item_header">
                 <label class="checkbox_container">
                     <input type="checkbox">
@@ -46,8 +49,12 @@
             <div class="task-item_footer">
                 <p id="date">{{tomeet.date_of_meeting}}</p>
                 <div class="action_buttons">
-                    <img src="{% static 'img/unmarked.png' %}">
-                    <img src="{% static 'img/trash-alt.svg' %}">
+                    {% if tomeet.is_favorite %}
+                    <a href="{% url 'unmark-tomeet' tomeet.id %}"><input type="button" class="btn_mark" value="Favorite"></a>
+                    {% else %}
+                    <a href="{% url 'mark-tomeet' tomeet.id %}"><input type="button" class="btn_mark" value="Add to favorites"></a>
+                    {% endif %}
+                    <a href="{% url 'delete-tomeet' tomeet.id %}"><input type="button" id="btn_delete" value="Delete"></a>
                 </div>
             </div>
         </div>
