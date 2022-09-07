@@ -72,8 +72,8 @@ section{
 }
 
 .todo_item.marked{
-    background-color: #FFE082;
-    border: 2px solid #fad66a;
+    background-color: #eff756;
+    border: 2px solid  #eff756;
 }
 
 .todo_item_header{
