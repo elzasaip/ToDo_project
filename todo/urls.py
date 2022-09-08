@@ -38,5 +38,6 @@ urlpatterns = [
     path('delete-tomeet/<id>',delete_tomeet, name='delete-tomeet'),
     path('mark-tomeet/<id>', mark_tomeet, name='mark-tomeet'),
     path('unmark-tomeet/<id>',unmark_tomeet, name='unmark-tomeet'),
+    path('close-tomeet/<id>', close_tomeet, name='close-tomeet'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

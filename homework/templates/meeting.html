@@ -36,12 +36,17 @@
         <div class="task-item
         {% if tomeet.is_favorite %}
                 marked
-            {% endif %}">
+        {% elif tomeet.is_closed %}
+                done
+        {% endif %}">
             <div class="task-item_header">
                 <label class="checkbox_container">
-                    <input type="checkbox">
+                    <input type="checkbox"
+                    {% if tomeet.is_closed %}
+                            checked
+                        {% endif %}>
                     <span class="checkmark"></span> 
-                    <h4>{{ tomeet.person }}</h4>    
+                    <h4><a href="{% url 'close-tomeet' tomeet.id %}">{{ tomeet.person }}</a></h4>    
                 </label>
                 <h5>{{ tomeet.phone_number }}</h5>
                 <p id="comment">{{tomeet.comment}}</p>
@@ -52,7 +57,7 @@
                     {% if tomeet.is_favorite %}
                     <a href="{% url 'unmark-tomeet' tomeet.id %}"><input type="button" class="btn_mark" value="Favorite"></a>
                     {% else %}
-                    <a href="{% url 'mark-tomeet' tomeet.id %}"><input type="button" class="btn_mark" value="Add to favorites"></a>
+                    <a href="{% url 'mark-tomeet' tomeet.id %}"><input type="button" class="btn_mark" value="Add to Favorites"></a>
                     {% endif %}
                     <a href="{% url 'delete-tomeet' tomeet.id %}"><input type="button" id="btn_delete" value="Delete"></a>
                 </div>

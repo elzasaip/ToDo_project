@@ -56,6 +56,9 @@ input:not([type='button']){
  input:not([type='button'])::placeholder{
     opacity: 0.5;
  }
+ h4 a{
+    text-decoration: none;
+ }
 
  button{
     display:block;
@@ -129,12 +132,15 @@ h5::before{
     font-size: 16px;
 }
 .task-item.done{
-    background-color: #E0E0E0;
+    background-color: #a8a2a2;
     text-decoration: line-through;
     color:#757575;
 }
 .task-item.done h4, .task-item.done h5, .task-item.done p{
     color:#757575;
+}
+.task-item.done .btn_mark, .task-item.done #btn_delete{
+    opacity: 0.4;
 }
 .task-item.marked{
     background-color: #f7e756;
