@@ -54,6 +54,15 @@ def close_tomeet(request, id):
     tomeet.save()
     return redirect(meeting)
 
+def add_goals (request):
+    form = request.POST
+    add_goal = form['add_goal']
+    add_month = form['add_month']
+    category = form['category']
+    add_reason = form['add_reason']
+    goals = Goal_for_month(goal=add_goal, month=add_month, difficulty=category, reason_for_goal=add_reason)
+    goals.save()
+    return redirect(goal)
 
 
 

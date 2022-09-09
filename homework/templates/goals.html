@@ -14,40 +14,21 @@
         <div class="picture">
             <img id=image src="{% static 'img/goals.jpeg' %}">
         </div >
+        <form  action="{% url 'add-goals' %}" method="POST">
+            {% csrf_token %}
         <div class="input">
-            <h2 id="title">Мои цели на месяц</h2>
-            <input id="task-field_inputgoal" type="text" placeholder="Напишите свю цель"><br>
+            <h2 id="title">My Goals List</h2>
+            <input id="task-field_inputgoal" type="text" name="add_goal"
+            placeholder="Write down your goal"><br>
+            <input id="task-field_inputmonth" type="text" placeholder="Month"
+            name="add_month"><br>
+            <input id="task-field_inputCategory" type="text" 
+                name="category" placeholder="Напишите уровень сложности"> <br>
             <input id="task-field_inputcomment" type="text" 
-                name="add_reason" placeholder="Напишите комментарий"> <br>
-        </div>
-            <h4>{{difficulty}}</h4>
-        <div class="options-container">
-            <h4>Уровень сложности:</h4>
-            <label class="radio_options">
-                <input type="radio"
-                name="category"
-                id="category1"
-                value="easy">
-                <span>Легкий</span>
-            </label>
-
-            <label class="radio_options">
-                <input type="radio"
-                name="category"
-                id="category2"
-                value="normal">
-                <span>Средний</span>
-            </label>
-        
-            <label class="radio_options">
-                <input type="radio"
-                name="category"
-                id="category3"
-                value="difficult">
-                <span>Сложный</span>
-            </label>
+                name="add_reason" placeholder="Write down comment"> <br>
         </div>
         <div><button id="task-field_button">ДОБАВИТЬ</button></div>
+        </form>
         <div class="goal_task">
             {% for goals in goals_list %}
             <div class="task-item">
@@ -57,9 +38,10 @@
                         <span class="checkmark"></span>
                         <h4>{{goals.goal}}</h4>     
                     </label>
+                    <p id="month">{{goals.month}}</p>
+                    <h5>{{goals.difficulty}}</h5>
                 </div>
                 <div class="task-item_footer">
-                    <p id="date">{{goals.month}}</p>
                     <p>{{ goals.reason_for_goal }}</p>
                     <div class="action_buttons">
                         <img src="{% static 'img/unmarked.png' %}">
