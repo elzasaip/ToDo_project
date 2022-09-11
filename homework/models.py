@@ -14,6 +14,8 @@ class Goal_for_month (models.Model):
     month = models.CharField(max_length=30)
     difficulty = models.CharField(max_length=30)
     reason_for_goal=models.TextField()
+    is_closed = models.BooleanField(default = False)
+    is_favorite = models.BooleanField(default = False)
 
 class Habits(models.Model):
     name = models.CharField(max_length=50)

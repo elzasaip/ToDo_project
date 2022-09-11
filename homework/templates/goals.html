@@ -31,21 +31,33 @@
         </form>
         <div class="goal_task">
             {% for goals in goals_list %}
-            <div class="task-item">
+            <div class="task-item
+            {% if goals.is_favorite %}
+                marked
+            {% elif goals.is_closed %}
+                done
+            {% endif %}">          
                 <div class="task-item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox">
+                        <input type="checkbox"
+                        {% if goals.is_closed %}
+                            checked
+                        {% endif %}>
                         <span class="checkmark"></span>
-                        <h4>{{goals.goal}}</h4>     
+                        <h4><a href="{% url 'close-goal' goals.id %}">{{goals.goal}}</a></h4>     
                     </label>
                     <p id="month">{{goals.month}}</p>
                     <h5>{{goals.difficulty}}</h5>
                 </div>
                 <div class="task-item_footer">
                     <p>{{ goals.reason_for_goal }}</p>
-                    <div class="action_buttons">
-                        <img src="{% static 'img/unmarked.png' %}">
-                        <img src="{% static 'img/trash-alt.svg' %}">
+                    <div class="action_buttons">             
+                        {% if goals.is_favorite %}
+                        <a href="{% url 'unmark-goal' goals.id %}"><img src="{% static './img/yellow.png' %}"></a>
+                    {% else %}
+                        <a href="{% url 'mark-goal' goals.id %}"><img src="{% static './img/unmarked.png' %}"></a>                       
+                    {% endif %}                     
+                        <a href="{% url 'delete-goal' goals.id %}"><img src="{% static './img/trash-alt.svg' %}"></a>
                     </div>
                 </div>
             </div>

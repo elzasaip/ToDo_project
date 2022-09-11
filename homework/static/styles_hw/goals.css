@@ -73,7 +73,7 @@ input[type='text']{
     background-color: rgba(103, 71, 219, 0.963);
     border-radius: 5px;
     box-shadow: 2px 0px 5px rgb(58, 58, 60);
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 35%;
     cursor:pointer;
@@ -86,14 +86,16 @@ input[type='text']{
  
  .goal_task{
     display: flex;
-    width: 45%;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
     border-radius: 5px;
     box-shadow: 2px 0px 5px rgb(169, 167, 167);
     background-color: rgba(213, 216, 216, 0.888);
-    padding:12px 15px;
-    margin:30px 20px;
+    margin-top: 30px;
+    margin-bottom:30px;
 }
+
 .task-item_header,.task-item_footer{
     color: #343338;
     font-family: sans-serif;
@@ -104,6 +106,9 @@ input[type='text']{
     margin-left: 21px;
     margin-top: 10px;
     font-size: 18px;
+}
+h4 a{
+    text-decoration: none;
 }
 .task-item_header h5{
     margin-top: 5px;
@@ -119,6 +124,22 @@ input[type='text']{
 
 #month{
     font-size: 16px;
+}
+.task-item.done{
+    background-color: #a8a2a2;
+    text-decoration: line-through;
+    color:#757575;
+}
+.task-item.done h4, .task-item.done h5, .task-item.done p{
+    color:#757575;
+}
+.task-item.done img{
+    opacity: 0.5;
+}
+
+.task-item.marked{
+    background-color: #f7e756;
+    border: 2px solid  #eff756;
 }
 
 .task-item_footer.action_buttons{

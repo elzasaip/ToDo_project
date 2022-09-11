@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals List</title>
+    <link rel="stylesheet" href="{% static 'styles_hw/goals.css' %}">
+    <link rel="stylesheet" href="{% static 'styles_hw/checkbox.css' %}">
+</head>
+<body>
+    <section>
+        <div class="picture">
+            <img id=image src="{% static 'img/goals.jpeg' %}">
+        </div >
+        <div class="input">
+            <h2 id="title">My Goals List</h2>
+            <input id="task-field_inputgoal" type="text" name="add_goal"
+            placeholder="Write down your goal"><br>
+            <input id="task-field_inputmonth" type="text" placeholder="Month"
+            name="add_month"><br>
+            <input id="task-field_inputCategory" type="text" 
+                name="category" placeholder="Напишите уровень сложности"> <br>
+            <input id="task-field_inputcomment" type="text" 
+                name="add_reason" placeholder="Write down comment"> <br>
+        </div>
+        <div><button id="task-field_button">ДОБАВИТЬ</button></div>
+        <div class="goal_task">
+            <div class="task-item">
+                <div class="task-item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>Goal</h4>     
+                    </label>
+                    <p id="month">Month</p>
+                    <h5>difficulty</h5>
+                </div>
+                <div class="task-item_footer">
+                    <p>reason</p>
+                    <div class="action_buttons">
+                        <img src="{% static './img/unmarked.png' %}">                     
+                        <img src="{% static './img/trash-alt.svg' %}">
+                    </div>
+                </div>
+            </div>
+            <div class="task-item done">
+                <div class="task-item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>Goal</h4>     
+                    </label>
+                    <p id="month">Month</p>
+                    <h5>difficulty</h5>
+                </div>
+                <div class="task-item_footer">
+                    <p>reason</p>
+                    <div class="action_buttons">
+                        <img src="{% static './img/unmarked.png' %}">                     
+                        <img src="{% static './img/trash-alt.svg' %}">
+                    </div>
+                </div>
+            </div>
+            <div class="task-item marked">
+                <div class="task-item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>Goal</h4>     
+                    </label>
+                    <p id="month">Month</p>
+                    <h5>difficulty</h5>
+                </div>
+                <div class="task-item_footer">
+                    <p>reason</p>
+                    <div class="action_buttons">
+                        <img src="{% static './img/yellow.png' %}">                     
+                        <img src="{% static './img/trash-alt.svg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -31,18 +31,18 @@ def habits(request):
     habits_list = Habits.objects.all()
     return render (request,'habits.html',{'habits_list':habits_list})
 
-def delete_tomeet(request,id):
+def delete_to_meet(request,id):
     tomeet = ToMeet.objects.get(id=id)
     tomeet.delete()
     return redirect(meeting)
 
-def mark_tomeet(request,id):
+def mark_to_meet(request,id):
     tomeet = ToMeet.objects.get(id=id)
     tomeet.is_favorite = True 
     tomeet.save()
     return redirect(meeting)
 
-def unmark_tomeet(request,id):
+def unmark_to_meet(request,id):
     tomeet = ToMeet.objects.get(id=id)
     tomeet.is_favorite = False
     tomeet.save()
@@ -63,6 +63,30 @@ def add_goals (request):
     goals = Goal_for_month(goal=add_goal, month=add_month, difficulty=category, reason_for_goal=add_reason)
     goals.save()
     return redirect(goal)
+
+def delete_goal (request, id):
+    goals = Goal_for_month.objects.get(id=id)
+    goals.delete()
+    return redirect(goal)
+
+def mark_goal (request,id):
+    goals = Goal_for_month.objects.get(id=id)
+    goals.is_favorite=True
+    goals.save()
+    return redirect(goal)
+
+def unmark_goal(request, id):
+    goals = Goal_for_month.objects.get(id=id)
+    goals.is_favorite=False
+    goals.save()
+    return redirect(goal)
+
+def close_goal(request,id):
+    goals = Goal_for_month.objects.get(id=id)
+    goals.is_closed = not goals.is_closed
+    goals.save()
+    return redirect(goal)
+
 
 
 
